@@ -33,8 +33,9 @@ Thumbs.db
 dist/
 build/
 
-# Keploy recordings (optional - uncomment if you don't want to commit them)
-# keploy/
+# Keploy recordings 
+ keploy/
 
 # MySQL data
 mysql_data/
+
