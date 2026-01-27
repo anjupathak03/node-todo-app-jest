@@ -9,10 +9,18 @@
     "test": "jest --coverage",
     "test:watch": "jest --watch",
     "test:integration": "jest --testPathPattern=integration",
+    "test:mocha": "mocha",
     "keploy:record": "keploy record -c \"npm test\"",
     "keploy:test": "keploy test -c \"npm test\""
   },
-  "keywords": ["todo", "api", "mysql", "keploy", "jest"],
+  "keywords": [
+    "todo",
+    "api",
+    "mysql",
+    "keploy",
+    "jest",
+    "mocha"
+  ],
   "author": "",
   "license": "MIT",
   "dependencies": {
@@ -21,9 +29,11 @@
     "mysql2": "^3.6.5"
   },
   "devDependencies": {
+    "chai": "^6.2.2",
     "jest": "^29.7.0",
+    "mocha": "^11.7.5",
     "nodemon": "^3.0.2",
-    "supertest": "^6.3.3"
+    "supertest": "^6.3.4"
   },
   "jest": {
     "testEnvironment": "node",

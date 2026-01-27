@@ -1,0 +1,6 @@
+{
+  "timeout": 10000,
+  "exit": true,
+  "recursive": true,
+  "spec": "mocha-tests/**/*.test.js"
+}

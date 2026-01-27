@@ -16,7 +16,9 @@ node-todo-app/
 │   ├── app.js          # Express app
 │   └── index.js        # Entry point
 ├── __tests__/
-│   └── integration/    # Integration tests (with database)
+│   └── integration/    # Jest integration tests
+├── mocha-tests/
+│   └── integration/    # Mocha integration tests
 ├── docker-compose.yml  # Docker Compose configuration
 ├── package.json
 └── .env
@@ -78,11 +80,16 @@ docker-compose down
 
 ## Testing
 
-### Run Integration Tests (Database Required)
+This project includes two test frameworks: **Jest** and **Mocha**. Both require the database to be running.
+
+### Run Jest Tests
 ```bash
 npm test
-# or
-npm test -- --testPathPattern=integration
+```
+
+### Run Mocha Tests
+```bash
+npm run test:mocha
 ```
 
 ## Using Keploy for Mocking
