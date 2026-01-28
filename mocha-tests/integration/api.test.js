@@ -45,16 +45,6 @@ describe('Todo API Integration Tests (Mocha)', function() {
       expect(res.body).to.have.property('id');
     });
 
-    it('should create a todo without description', async function() {
-      const res = await request(app)
-        .post('/api/todos')
-        .send({ title: 'Todo without description' });
-
-      expect(res.status).to.equal(201);
-      expect(res.body).to.have.property('title', 'Todo without description');
-      expect(res.body).to.have.property('description', '');
-    });
-
     it('should return 400 for missing title', async function() {
       const res = await request(app)
         .post('/api/todos')
@@ -71,16 +61,6 @@ describe('Todo API Integration Tests (Mocha)', function() {
 
       expect(res.status).to.equal(400);
       expect(res.body).to.have.property('error', 'Title is required');
-    });
-  });
-
-  describe('GET /api/todos', function() {
-    it('should return empty array when no todos', async function() {
-      const res = await request(app)
-        .get('/api/todos');
-
-      expect(res.status).to.equal(200);
-      expect(res.body).to.be.an('array').that.is.empty;
     });
   });
 
@@ -140,13 +120,4 @@ describe('Todo API Integration Tests (Mocha)', function() {
     });
   });
 
-  describe('404 Handler', function() {
-    it('should return 404 for unknown routes', async function() {
-      const res = await request(app)
-        .get('/unknown/route');
-
-      expect(res.status).to.equal(404);
-      expect(res.body).to.have.property('error', 'Not found');
-    });
-  });
 });

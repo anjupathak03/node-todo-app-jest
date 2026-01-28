@@ -99,22 +99,21 @@ Keploy records database calls and replays them during tests, eliminating the nee
 ### Recording Mocks
 
 ```bash
-# Record database calls during integration tests
+# Record database calls during Jest integration tests
 C:\Users\nehap\keploy\keploy.exe mock record -c "npm test -- --testPathPattern=integration"
+
+# Record database calls during Mocha tests
+C:\Users\nehap\keploy\keploy.exe mock record -c "npm run test:mocha"
 ```
 
 ### Replaying with Mocks
 
 ```bash
-# Run tests with recorded mocks (no database needed!)
+# Run Jest tests with recorded mocks (no database needed!)
 C:\Users\nehap\keploy\keploy.exe mock test -c "npm test -- --testPathPattern=integration"
-```
 
-### npm Scripts for Keploy
-
-```bash
-npm run keploy:record  # Record mocks
-npm run keploy:test    # Test with mocks
+# Run Mocha tests with recorded mocks (no database needed!)
+C:\Users\nehap\keploy\keploy.exe mock test -c "npm run test:mocha"
 ```
 
 ## API Examples
