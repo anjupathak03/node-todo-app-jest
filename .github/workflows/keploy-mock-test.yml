@@ -46,4 +46,4 @@ jobs:
 
       - name: Run Keploy Mock Test
         run: |
-          keploy mock test -c "npm test" --mock-name "keploy/node-todo-app-mysql-20260130-053543"
+          keploy mock test -c "npm test" --mock-name "node-todo-app-mysql-20260130-053543"
