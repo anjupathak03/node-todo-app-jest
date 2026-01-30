@@ -13,7 +13,7 @@ on:
 
 jobs:
   keploy-mock-test:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     
     steps:
       - name: Checkout code
@@ -35,15 +35,16 @@ jobs:
           npm ci
 
       - name: Build Keploy from mcp-server-pipeline branch
+        shell: pwsh
         run: |
           git clone https://github.com/keploy/keploy.git keploy-src
           cd keploy-src
           git checkout mcp-server-pipeline
-          go build -o keploy .
-          sudo mv keploy /usr/local/bin/keploy
-          sudo chmod +x /usr/local/bin/keploy
+          go build -o keploy.exe .
+          Move-Item -Force keploy.exe $env:GOPATH\bin\keploy.exe
           cd ..
 
       - name: Run Keploy Mock Test
+        shell: pwsh
         run: |
           keploy mock test -c "npm test" --mock-name "node-todo-app-mysql-20260130-053543"
