@@ -41,7 +41,10 @@ jobs:
           cd keploy-src
           git checkout mcp-server-pipeline
           go build -o keploy.exe .
-          Move-Item -Force keploy.exe $env:GOPATH\bin\keploy.exe
+          $binPath = "$env:USERPROFILE\go\bin"
+          New-Item -ItemType Directory -Force -Path $binPath | Out-Null
+          Move-Item -Force keploy.exe $binPath\keploy.exe
+          echo "$binPath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
           cd ..
 
       - name: Run Keploy Mock Test
