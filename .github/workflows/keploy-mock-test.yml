@@ -36,12 +36,12 @@ jobs:
 
       - name: Build Keploy from mcp-server-pipeline branch
         run: |
-          git clone https://github.com/keploy/keploy.git
-          cd keploy
+          git clone https://github.com/keploy/keploy.git keploy-src
+          cd keploy-src
           git checkout mcp-server-pipeline
           go build -o keploy .
           sudo mv keploy /usr/local/bin/keploy
-          chmod +x /usr/local/bin/keploy
+          sudo chmod +x /usr/local/bin/keploy
           cd ..
 
       - name: Run Keploy Mock Test
